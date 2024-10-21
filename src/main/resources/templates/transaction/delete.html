@@ -1,0 +1,6 @@
+<p>Are you sure to delete this variant?</p>
+Variant Name: <span th:text="${variant.name}"></span><br>
+Price: <span th:text="${orderDetail.price}"></span><br>
+Quantity: <span th:text="${orderDetail.quantity}"></span><br>
+<hr>
+<button class="btn btn-danger" th:value="${orderDetail.id}" onclick='deleteVariant(`${orderHeader.id}`,this.value)' style="float: right;">Delete</button>

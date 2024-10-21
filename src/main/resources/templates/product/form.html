@@ -1,0 +1,23 @@
+<form th:action="@{~/product/save}" th:object="${product}" method="post" onsubmit="reverseCheckboxValue()">
+    <input type="hidden" name="id" id="id" th:field="*{id}">
+    <div class="mb-3">
+        <label for="selectCategory">Category</label>
+        <select class="form-control" name="category" id="selectCategory" th:field="*{categoryId}">
+            <option selected="true" disabled="true" value=0 >Select Category</option>
+            <option th:each= "category:${categorys}" th:value="${category.id}" th:text="${category.name}"></option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="productSlug" class="form-label">Slug</label>
+        <input type="text" class="form-control" name="slug" id="productSlug" placeholder="Input product Slug" th:field="*{slug}">
+    </div>
+    <div class="mb-3">
+        <label for="productName">Name</label>
+        <textarea class="form-control" name="name" id="productName" placeholder="Input Product Name" th:field="*{name}"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="categoryActive" class="form-label">Active</label><br>
+        <input type="checkbox" name="active" id="productActive" th:field="*{isDeleted}">
+    </div>
+    <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
+</form>

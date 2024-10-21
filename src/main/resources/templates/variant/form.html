@@ -1,0 +1,41 @@
+<form th:action="@{~/variant/save}" th:object="${variant}" method="post" onsubmit="reverseCheckboxValue()">
+    <input type="hidden" name="id" id="id" th:field="*{id}" th:if="${variant.id != null}">
+    <div class="mb-3">
+        <label for="selectCategory">Category</label>
+        <select class="form-control" name="category" id="selectCategory" onchange="updateProduct(this.value)">
+            <option selected="true" disabled="true" value=0 >Select Category</option>
+            <option th:each= "category:${categorys}" th:value="${category.id}" th:text="${category.name}"></option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="selectProduct">Product</label>
+        <select class="form-control" name="product" id="selectProduct" th:field="*{productId}">
+            <option selected="true" disabled="true" value=0 >Select Product</option>
+          </select>
+    </div>
+    <div class="mb-3">
+        <label for="variantSlug" class="form-label">Slug</label>
+        <input type="text" class="form-control" name="slug" id="variantSlug" placeholder="Input Variant Slug" th:field="*{slug}">
+    </div>
+    <div class="mb-3">
+        <label for="variantName">Name</label>
+        <textarea class="form-control" name="name" id="variantName" placeholder="Input Variant Name" th:field="*{name}"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="variantDesc">Variant Description</label>
+        <textarea class="form-control" name="description" id="variantDesc" placeholder="Input Description" th:field="*{description}"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="variantPrice">Price</label>
+        <input type="number" class="form-control" name="price" id="variantPrice" placeholder="Input Variant Price" th:field="*{price}"></input>
+    </div>
+    <div class="mb-3">
+        <label for="variantStock">Stock</label>
+        <input type="number"  class="form-control" name="stock" id="variantStock" placeholder="Input Variant Stock" th:field="*{stock}"></input>
+    </div>
+    <div class="mb-3">
+        <label for="variantActive" class="form-label">Active</label><br>
+        <input type="checkbox" name="active" id="variantActive" th:field="*{isDeleted}">
+    </div>
+    <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
+</form>

@@ -1,0 +1,5 @@
+<p>Are you sure to delete this product?</p>
+Product Name: <span th:text="${product.name}"></span><br>
+Slug: <span th:text="${product.slug}"></span><br>
+<hr>
+<button class="btn btn-danger" th:value="${product.id}" onclick="confirm('Are you sure?', deleteProduct(this.value))" style="float: right;">Delete</button>

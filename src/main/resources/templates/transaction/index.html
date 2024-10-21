@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/main}">
+<body>
+    <section layout:fragment="container">
+        <div class="container mt-3">
+            <h1 th:text="${title}"></h1>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mt-1 mb-3" th:value="${orderHeader.id}" onclick="openForm(this.value)">
+                New Order
+            </button>
+            <button type="button" class="btn btn-primary mt-1 mb-3" th:value="${orderHeader.id}" onclick="openPayment(this.value)">
+                Payment
+            </button>
+            <button type="button" class="btn btn-primary mt-1 mb-3" href="/transaction">
+                New Transaction
+            </button>
+
+            <table class="table table-bordered table-striped table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Variant Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="orderDetail, iter : ${orderDetails}">
+                        <td th:text="${orderDetail.variant.name}"></td>
+                        <td th:text="${orderDetail.price}"></td>
+                        <td th:text="${orderDetail.quantity}"></td>
+                        <td th:text="${orderDetail.price * orderDetail.quantity}"></td>
+                        <td>
+                            <button class="btn btn-danger" th:value="${orderDetail.id}" onclick="deleteForm(`${orderHeader.id}`, this.value)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="myModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/transaction.js"></script>
+    </section>
+</body>
+</html>

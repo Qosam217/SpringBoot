@@ -1,0 +1,16 @@
+<form th:action="@{~/category/save}" th:object="${category}" method="post" onsubmit="reverseCheckboxValue()">
+    <input type="hidden" name="id" id="id" th:field="*{id}">
+    <div class="mb-3">
+        <label for="productName" class="form-label">Category Name</label>
+        <input type="text" class="form-control" name="name" id="productName" placeholder="Input Product Name" th:field="*{name}">
+    </div>
+    <div class="mb-3">
+        <label for="categorySlug" class="form-label">Slug</label>
+        <input type="text" class="form-control" name="slug" id="categorySlug" placeholder="Input Category Slug" th:field="*{slug}">
+    </div>
+    <div class="mb-3">
+        <label for="categoryActive" class="form-label">Active</label><br>
+        <input type="checkbox" name="active" id="categoryActive" th:field="*{isDeleted}">
+    </div>
+    <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
+</form>
