@@ -11,5 +11,5 @@ public class OrderHeaderResponseDto {
     private BigDecimal amount;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean isDeleted;
+    private Boolean active;
 }

@@ -8,5 +8,5 @@ import lombok.Data;
 public class OrderHeaderRequestDto {
     private String referee;
     private BigDecimal amount;
-    private Boolean isDeleted;
+    private Boolean active;
 }

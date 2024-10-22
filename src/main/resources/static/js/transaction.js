@@ -36,11 +36,16 @@ function deleteVariant(orderHeaderId, orderDetailId) {
     });
 }
 
-let selectedVariants = [];
+
 
 function getSelectedVariants() {
-    const hiddenInput = document.getElementById('selectedVariantIds');
-    hiddenInput.value = selectedVariants.join(',');
+    console.log("123");
+    let selectedVariants = [];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach((check) => {
+        selectedVariants.push(check);
+    })
+    console.log(selectedVariants);
 }
 
 

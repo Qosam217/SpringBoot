@@ -10,7 +10,7 @@ public class ProductResponseDto {
     private Category category;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean isDeleted;
+    private Boolean active;
     
     public String getName() {
         return name;
@@ -36,11 +36,11 @@ public class ProductResponseDto {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-    public Boolean getIsDeleted() {
-        return isDeleted;
+    public Boolean getactive() {
+        return active;
     }
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setactive(Boolean active) {
+        this.active = active;
     }
     public Category getCategory() {
         return category;

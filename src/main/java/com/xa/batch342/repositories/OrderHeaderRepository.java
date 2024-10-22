@@ -10,6 +10,6 @@ import com.xa.batch342.entities.OrderHeader;
 
 @Repository
 public interface OrderHeaderRepository extends JpaRepository<OrderHeader, Long>{
-     @Query(value = "select oh from OrderHeader oh where isDeleted = false")
+     @Query(value = "select oh from OrderHeader oh")
     List<OrderHeader> getAllOrdersHeader();
 }

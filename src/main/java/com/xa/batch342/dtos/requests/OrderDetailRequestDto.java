@@ -10,5 +10,5 @@ public class OrderDetailRequestDto {
     private Long variantId;
     private BigDecimal price;
     private BigDecimal quantity;
-    private Boolean isDeleted;
+    private Boolean active;
 }

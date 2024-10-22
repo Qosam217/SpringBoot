@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import groovy.transform.EqualsAndHashCode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,12 +24,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderDetail extends BaseEntity{
     
-    public OrderDetail(BigDecimal quantity, Long orderHeaderId, Long variantId, BigDecimal price, Boolean isDeleted){
+    public OrderDetail(BigDecimal quantity, Long orderHeaderId, Long variantId, BigDecimal price, Boolean active){
         this.quantity = quantity;
         this.orderHeaderId = orderHeaderId;
         this.variantId = variantId;
         this.price = price;
-        this.isDeleted = isDeleted;
+        this.active = active;
     }
 
     @Id
@@ -58,6 +59,6 @@ public class OrderDetail extends BaseEntity{
     @Column(name="price", precision=18, scale=4)
     private BigDecimal price;
 
-    @Column(name="is_deleted")
-    private Boolean isDeleted;
+    @Column(name="active")
+    private Boolean active;
 }

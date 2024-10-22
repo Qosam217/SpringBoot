@@ -26,10 +26,10 @@ public class Category extends BaseEntity {
 
     }
 
-    public Category(String name, String slug, Boolean isDeleted){
+    public Category(String name, String slug, Boolean active){
         this.name = name;
         this.slug = slug;
-        this.isDeleted = isDeleted;
+        this.active = active;
     }
     
     @Id
@@ -44,8 +44,8 @@ public class Category extends BaseEntity {
     private String slug;
 
 
-    @Column(name="is_deleted")
-    private Boolean isDeleted;
+    @Column(name="active")
+    private Boolean active;
 
     @OneToMany(mappedBy="category", cascade=CascadeType.ALL)
     @JsonBackReference

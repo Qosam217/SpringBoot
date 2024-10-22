@@ -1,16 +1,16 @@
-<form th:action="@{~/variant/save}" th:object="${variant}" method="post">
+<form th:action="@{~/variant/save}" th:object="${variant}" method="post" >
     <input type="hidden" name="id" id="id" th:field="*{id}" th:if="${variant.id != null}">
     <div class="mb-3">
         <label for="selectCategory">Category</label>
         <select class="form-control" name="category" id="selectCategory" onchange="updateProduct(this.value)">
-            <option selected="true" disabled="true" value=0 >Select Category</option>
-            <option th:each= "category:${categorys}" th:value="${category.id}" th:text="${category.name}"></option>
+            <option th:value="${icategory.id}" th:text="${icategory.name}" onchange=""></option>
+            <option th:each= "category:${categorys}" th:if="${icategory.id != category.id}" th:value="${category.id}" th:text="${category.name}"></option>
           </select>
     </div>
     <div class="mb-3">
         <label for="selectProduct">Product</label>
         <select class="form-control" name="product" id="selectProduct" th:field="*{productId}">
-            <option selected="true" disabled="true" value=0 >Select Product</option>
+            <option th:value="${iproduct.id}" th:text="${iproduct.name}"></option>
           </select>
     </div>
     <div class="mb-3">
@@ -37,6 +37,6 @@
         <label for="variantActive" class="form-label">Active</label><br>
         <input type="checkbox" name="active" id="variantActive" th:field="*{active}">
     </div>
-    <button type="reset" class="btn btn-secondary" style="float:left">Cancel</button>
-    <button type="submit" class="btn btn-success" style="float: right;">Save</button>
+    <button type="reset" class="btn btn-secondary" style="float:left;">Cancel</button>
+    <button type="submit" class="btn btn-warning" style="float: right;">Save Changes</button>
 </form>

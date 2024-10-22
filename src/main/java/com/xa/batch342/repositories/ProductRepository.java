@@ -17,9 +17,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     // List<Product> getAllProducts();
 
     // Hibernate Query
-    @Query(value = "select p from Product p join p.category c where p.isDeleted = false and c.isDeleted=false")
+    @Query(value = "select p from Product p")
     List<Product> getAllProducts();
 
-    @Query(value = "select p from Product p where isDeleted=false and categoryId = :id")
+    @Query(value = "select p from Product p where categoryId = :id")
     List<Product> getAllProductsByCategory(@Param("id") Long id);
 }

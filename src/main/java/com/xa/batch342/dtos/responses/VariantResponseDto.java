@@ -17,5 +17,5 @@ public class VariantResponseDto {
     private BigDecimal stock;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean isDeleted;
+    private Boolean active;
 }

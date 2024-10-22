@@ -12,7 +12,7 @@
 
             <table class="table table-bordered table-striped table-hover table-sm">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th scope="col">Category/Product</th>
                         <th scope="col">Initial</th>
                         <th scope="col">Name</th>
@@ -29,12 +29,12 @@
                         <td th:text="${variant.name}"></td>
                         <td th:text="${variant.price}"></td>
                         <td th:text="${variant.stock}"></td>
-                        <td>
-                            <input type="checkbox" th:checked= "${!variant.isDeleted}"></input>
+                        <td class="text-center">
+                            <input type="checkbox" disabled="true" th:checked= "${variant.active}"></input>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <button class="btn btn-warning" th:value="${variant.id}" onclick="editForm(this.value)">
-                                Edit
+                                <i class="fas fa-edit"></i>
                             </button>
                             <button class="btn btn-danger" th:value="${variant.id}" onclick="deleteForm(this.value)">
                                 <i class="fa fa-trash"></i>

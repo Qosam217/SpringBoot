@@ -26,11 +26,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Product extends BaseEntity{
 
-    public Product(String name, String slug, Long categoryId, Boolean isDeleted){
+    public Product(String name, String slug, Long categoryId, Boolean active){
         this.name = name;
         this.slug = slug;
         this.categoryId = categoryId;
-        this.isDeleted = isDeleted;
+        this.active = active;
     }
     
     @Id
@@ -52,8 +52,8 @@ public class Product extends BaseEntity{
     @Column(name = "category_id")
     private Long categoryId;
 
-    @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    @Column(name = "active")
+    private Boolean active;
 
     @OneToMany(mappedBy="product", cascade=CascadeType.ALL)
     @JsonBackReference

@@ -48,9 +48,9 @@ public class Batch342Application {
 		return args -> {
 			if (categoryRepository.count() == 0){
 				// Category Seeding
-			Category food = new Category("Food", "food",  false);
-			Category beverage = new Category("Beverage", "beverage", false);
-			Category medicine = new Category("Medicine", "medicine",  false);
+			Category food = new Category("Food", "food",  true);
+			Category beverage = new Category("Beverage", "beverage", true);
+			Category medicine = new Category("Medicine", "medicine",  true);
 			// Category fastFood = new Category("Fast Food", "fast-food");
 			categoryRepository.save(food);
 			categoryRepository.save(beverage);
@@ -64,25 +64,25 @@ public class Batch342Application {
 			// 	categoryRepository.save(categorySeed);
 			// }
 
-			Product indomie = new Product("Instant Noodle", "instant-noodle", 1L, false);
-			Product dairy = new Product("Dairy", "dairy", 2L, false);
+			Product indomie = new Product("Instant Noodle", "instant-noodle", 1L, true);
+			Product dairy = new Product("Dairy", "dairy", 2L, true);
 			Product paracetamol = new Product("Paracetamol", "paracetamol", 3L, true);
 			productRepository.save(indomie);
 			productRepository.save(dairy);
 			productRepository.save(paracetamol);
 			
 			
-			Variant goreng = new Variant("Indomie goreng", 1L, "indomie-goreng asik", "mie rebus tidak digoreng", new BigDecimal(5000), new BigDecimal(300), false);
-			Variant milku = new Variant("Milku Cokelat", 2L, "susu choco", "Susu rasa cokelat...", new BigDecimal(4500), new BigDecimal(250), false);
-			Variant sanmol = new Variant("Sanmol", 3L, "sanmolin", "pereda panas", new BigDecimal(1500.00), new BigDecimal(3000),false);
+			Variant goreng = new Variant("Indomie goreng", 1L, "indomie-goreng asik", "mie rebus tidak digoreng", new BigDecimal(5000), new BigDecimal(300), true);
+			Variant milku = new Variant("Milku Cokelat", 2L, "susu choco", "Susu rasa cokelat...", new BigDecimal(4500), new BigDecimal(250), true);
+			Variant sanmol = new Variant("Sanmol", 3L, "sanmolin", "pereda panas", new BigDecimal(1500.00), new BigDecimal(3000),true);
 			variantRepository.save(goreng);
 			variantRepository.save(milku);
 			variantRepository.save(sanmol);
 
-			OrderHeader oh1 = new OrderHeader(new BigDecimal(150), false);
+			OrderHeader oh1 = new OrderHeader(new BigDecimal(150), true);
 			orderHeaderRepository.save(oh1);
 
-			OrderDetail od1 = new OrderDetail(new BigDecimal(150), 1L, 3L, new BigDecimal(1500), false);
+			OrderDetail od1 = new OrderDetail(new BigDecimal(150), 1L, 3L, new BigDecimal(1500), true);
 			orderDetailRepository.save(od1);
 			}
 		};

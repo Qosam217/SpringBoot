@@ -6,5 +6,5 @@ import lombok.Data;
 public class CategoryRequestDto {
     private String name;
     private String slug;
-    private Boolean isDeleted;
+    private Boolean active;
 }

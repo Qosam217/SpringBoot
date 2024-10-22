@@ -10,6 +10,6 @@ public class CategoryResponseDto {
     private String slug;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-    private Boolean isDeleted;
+    private Boolean active;
 
 }

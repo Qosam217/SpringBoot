@@ -70,10 +70,14 @@ public class VariantController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id) {
-        ModelAndView view = new ModelAndView("variant/form");
+        ModelAndView view = new ModelAndView("variant/editForm");
         Variant variant = variantService.getVariantById(id);
+        Product iproduct = productService.getProductById(variant.getProductId());
+        Category icategory = categoryService.getCategoryById(iproduct.getCategoryId());
         List<Category> categorys = categoryService.getAllCategorys();
         view.addObject("categorys", categorys);
+        view.addObject("icategory", icategory);
+        view.addObject("iproduct", iproduct);
         view.addObject("variant", variant);
         return view;
     }

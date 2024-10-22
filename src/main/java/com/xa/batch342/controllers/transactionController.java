@@ -26,7 +26,7 @@ import com.xa.batch342.services.VariantService;
 
 @Controller
 @RequestMapping("/transaction")
-public class transactionController {
+public class TransactionController {
         
     @Autowired
     OrderDetailService orderDetailService;

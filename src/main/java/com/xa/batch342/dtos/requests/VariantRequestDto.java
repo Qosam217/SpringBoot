@@ -12,5 +12,5 @@ public class VariantRequestDto {
     private Long productId;
     private BigDecimal price;
     private BigDecimal stock;
-    private Boolean isDeleted;
+    private Boolean active;
 }

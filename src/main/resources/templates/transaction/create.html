@@ -1,34 +1,28 @@
-<form th:action="@{~/transaction/save}" th:object="${orderDetail}" method="post" onsubmit="getSelectedVariants()">
-    <input type="hidden" name="selectedVariantIds" id="selectedVariantIds">
-    <div class="container mt-5">
-        <h2>Select New Order</h2>
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="mb-3">  
-                    <input type="text" class="form-control" id="searchInput" placeholder="Search...">
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Select</th>
-                            <th>Initial</th>
-                            <th>Name/Description</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productTableBody">
-                        <tr th:each= "variant:${variants}" >
-                            <td><input type="checkbox" th:value="${variant.id}" class="option-checkbox"></td>
-                            <td th:text="${variant.slug}"></td>
-                            <td th:text="${variant.name + '/' + variant.description}"></td>
-                            <td th:text="${variant.price}"></td>
-                            <td th:text="${variant.stock}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
-        </div>
+<form th:action="@{/transaction/save/{headerId}(headerId=${orderHeader.id})}" method="post" onsubmit="getSelectedVariants()"></form>
+    <div class="mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search...">
     </div>
+    <div class="mb-3">  
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Initial</th>
+                    <th>Name/Description</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <tr th:each= "variant:${variants}" >
+                    <td><input type="checkbox" th:value="${variant.id}" class="option-checkbox"></td>
+                    <td th:text="${variant.slug}"></td>
+                    <td th:text="${variant.name + '/' + variant.description}"></td>
+                    <td th:text="${variant.price}"></td>
+                    <td th:text="${variant.stock}"></td>
+                </tr>
+            </tbody>
+        </table>       
+    </div>
+    <button type="submit" class="btn btn-primary" style="float: right;">Save</button>
 </form>

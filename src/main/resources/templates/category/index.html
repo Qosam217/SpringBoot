@@ -12,23 +12,27 @@
 
             <table class="table table-bordered table-striped table-hover table-sm">
                 <thead>
-                    <tr>
-                        <th scope="col">Slug</th>
+                    <tr class="text-center">
+                        <th scope="col" >Slug</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Active</th>
-                        <th scope="col">Action</th>
+                        <th scope="col" >Active</th>
+                        <th scope="col" >Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="category, iter : ${categories}">
                         <td th:text="${category.slug}"></td>
                         <td th:text="${category.name}"></td>
-                        <td>
-                            <input type="checkbox" th:checked= "${!category.isDeleted}"></input>
+                        <td class="text-center">
+                            <input type="checkbox" disabled="true" th:checked= "${category.active}"></input>
                         </td>
-                        <td>
-                            <button class="btn btn-warning" th:value="${category.id}" onclick="editForm(this.value)">Edit</button>
-                            <button class="btn btn-danger" th:value="${category.id}" onclick="deleteForm(this.value)">Delete</button>
+                        <td class="text-center">
+                            <button class="btn btn-warning" th:value="${category.id}" onclick="editForm(this.value)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" th:value="${category.id}" onclick="deleteForm(this.value)">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>

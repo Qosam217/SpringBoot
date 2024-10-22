@@ -11,9 +11,9 @@ import com.xa.batch342.entities.Variant;
 
 @Repository
 public interface  VariantRepository extends JpaRepository<Variant, Long>{
-    @Query(value = "select v from Variant v join v.product p join p.category c where v.isDeleted = false and p.isDeleted = false and c.isDeleted = false")
+    @Query(value = "select v from Variant v")
     List<Variant> getAllVariants();
 
-    @Query(value = "select v from Variant v join v.product p join p.category c where v.isDeleted = false and p.isDeleted = false and c.isDeleted = false and v.id in :ids")
+    @Query(value = "select v from Variant v where v.id in :ids")
     List<Variant> getVariantsByIds(@Param("ids") List<Long> ids);
 }

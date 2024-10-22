@@ -10,6 +10,7 @@ import groovy.transform.EqualsAndHashCode;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,14 +28,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Variant extends BaseEntity{
 
-    public Variant(String name, Long productId,String slug, String description, BigDecimal price, BigDecimal stock, Boolean isDeleted){
+    public Variant(String name, Long productId,String slug, String description, BigDecimal price, BigDecimal stock, Boolean active){
         this.slug = slug;
         this.productId = productId;
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
-        this.isDeleted = isDeleted;
+        this.active = active;
     }
 
     @Id
@@ -65,8 +66,8 @@ public class Variant extends BaseEntity{
     @Column(name="stock", precision=18, scale=2)
     private BigDecimal stock;
 
-    @Column(name="is_deleted")
-    private Boolean isDeleted;
+    @Column(name="active")
+    private Boolean active;
     
     @OneToMany(mappedBy="variant", cascade=CascadeType.ALL)
     @JsonBackReference

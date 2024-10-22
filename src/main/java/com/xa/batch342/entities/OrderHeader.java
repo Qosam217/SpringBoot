@@ -26,9 +26,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderHeader extends BaseEntity{
     
-    public OrderHeader(BigDecimal amount, Boolean isDeleted){
+    public OrderHeader(BigDecimal amount, Boolean active){
         this.amount = amount;
-        this.isDeleted = isDeleted;
+        this.active = active;
         LocalDate date = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMM");
         this.referee = "SLS-" + date.format(formatter) + "-";
@@ -45,8 +45,8 @@ public class OrderHeader extends BaseEntity{
     @Column(name="amount", precision=18, scale=4)
     private BigDecimal amount;
 
-    @Column(name="isDeleted")
-    private Boolean isDeleted;
+    @Column(name="active")
+    private Boolean active;
 
     @OneToMany(mappedBy="orderHeader", cascade=CascadeType.ALL)
     @JsonBackReference

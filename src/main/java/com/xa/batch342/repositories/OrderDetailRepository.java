@@ -11,9 +11,9 @@ import com.xa.batch342.entities.OrderDetail;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Object>{
-    @Query(value = "select od from OrderDetail od where isDeleted = false")
+    @Query(value = "select od from OrderDetail od")
     List<OrderDetail> getAllOrdersDetail();
 
-    @Query(value = "select od from OrderDetail od where isDeleted=false and orderHeaderId = :id")
+    @Query(value = "select od from OrderDetail od where orderHeaderId = :id")
     List<OrderDetail> getOrdersByHeaderId(@Param("id") Long id);
 }
